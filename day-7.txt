@@ -1,0 +1,26 @@
+SQL LEARNING – DAY 7
+=================================================
+
+
+
+1.Join
+---------------------------------------------- 
+   It is used to combine two or more than two tables.
+
+   Types of Joins-
+        1) Inner Join-
+              SELECT * FROM class1 INNER JOIN class2 ON class1.id=class2.id;
+
+        2) Right Join-
+              SELECT * FROM class1 RIGHT JOIN class2 ON class1.id=class2.id;
+
+        3) Left Join-
+              SELECT * FROM class1 LEFT JOIN class2 ON class1.id=class2.id;
+
+        4) Full Outer Join
+              SELECT * FROM class1 RIGHT JOIN class2 ON class1.id=class2.id
+              UNION
+             SELECT * FROM class1 LEFT JOIN class2 ON class1.id=class2.id;
+
+        5) Cross Join-
+              SELECT *FROM class1 CROSS JOIN class2;
