@@ -1,6 +1,6 @@
 SQL LEARNING – DAY 10
 =================================================
-
+=================================================
 
 Index-
   A SQL index is used to retrieve data from a database very fast.
