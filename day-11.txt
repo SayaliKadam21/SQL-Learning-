@@ -1,0 +1,212 @@
+SQL / PLSQL LEARNING – DAY 10
+=================================================
+
+1. DATA TYPES
+-------------------------------------------------
+A Data Type specifies the type of data that a column
+or variable can store.
+
+PL/SQL has two types of Data Types:
+1. Scalar Data Types
+2. Composite Data Types
+
+
+2. SCALAR DATA TYPES
+-------------------------------------------------
+Scalar data types store a single value.
+
+Types:
+
+1. NUMBER
+-----------------
+Used to store numeric values (integers or decimals)
+
+Example:
+INT, FLOAT, DECIMAL
+
+
+2. BOOLEAN
+-----------------
+Stores TRUE or FALSE values
+
+
+3. CHARACTER
+-----------------
+Stores text data
+
+Example:
+CHAR, VARCHAR, TEXT
+
+
+4. DATETIME
+-----------------
+Stores date and time values
+
+Example:
+DATE, TIME, DATETIME, TIMESTAMP
+
+
+3. OPERATORS
+-------------------------------------------------
+Operators are used to perform operations on data.
+
+Types of Operators:
+
+1. Arithmetic Operators
+-----------------
+Used for mathematical calculations
+
+Examples:
++  (Addition)
+-  (Subtraction)
+*  (Multiplication)
+/  (Division)
+%  (Modulus)
+
+
+2. Comparison Operators
+-----------------
+Used to compare values
+
+Examples:
+=   (Equal)
+!=  (Not Equal)
+>   (Greater Than)
+<   (Less Than)
+>=  (Greater Than or Equal)
+<=  (Less Than or Equal)
+
+
+3. Logical Operators
+-----------------
+Used to combine multiple conditions
+
+Examples:
+AND
+OR
+NOT
+
+
+4. Assignment Operator
+-----------------
+Used to assign values
+
+Example:
+=
+
+
+4. CONTROL STATEMENTS
+=================================================
+Control statements are used to control the flow of execution.
+
+
+1. IF-ELSE STATEMENT
+-------------------------------------------------
+Used to execute conditions based on logic.
+
+Example:
+
+DELIMITER //
+
+CREATE FUNCTION check_if_else(val INT)
+RETURNS VARCHAR(20)
+
+BEGIN
+    DECLARE income_level VARCHAR(20);
+
+    IF val = 10 THEN
+        SET income_level = 'value is 10';
+    ELSEIF val = 20 THEN
+        SET income_level = 'value is 20';
+    ELSE
+        SET income_level = 'Incorrect value';
+    END IF;
+
+    RETURN income_level;
+END //
+
+DELIMITER ;
+
+
+Explanation:
+• Checks the value of input
+• Returns different output based on condition
+
+
+2. CASE (SWITCH) STATEMENT
+-------------------------------------------------
+CASE is similar to switch statement in other languages.
+
+Example:
+
+DELIMITER //
+
+CREATE FUNCTION salary(val INT)
+RETURNS VARCHAR(20)
+
+BEGIN
+    DECLARE salary_checking VARCHAR(20);
+
+    CASE val
+        WHEN 10000 THEN
+            SET salary_checking = 'Low Salary';
+        WHEN 20000 THEN
+            SET salary_checking = 'Mid Salary';
+        WHEN 30000 THEN
+            SET salary_checking = 'High Salary';
+        ELSE
+            SET salary_checking = 'Super Salary';
+    END CASE;
+
+    RETURN salary_checking;
+END //
+
+DELIMITER ;
+
+
+Explanation:
+• Matches value with conditions
+• Returns corresponding result
+
+
+3. LOOP (WHILE LOOP)
+-------------------------------------------------
+Loops are used to repeat a block of code.
+
+Example:
+
+DELIMITER //
+
+CREATE FUNCTION myloop(val INT)
+RETURNS INT
+
+BEGIN
+    DECLARE result INT;
+    DECLARE i INT;
+
+    SET result = 0;
+    SET i = 1;
+
+    label1: WHILE i <= val DO
+        SET result = result + 1;
+        SET i = i + 1;
+    END WHILE label1;
+
+    RETURN result;
+END //
+
+DELIMITER ;
+
+
+Explanation:
+• Loop runs from 1 to given value
+• Increments result in each iteration
+• Returns final result
+
+
+IMPORTANT NOTES
+-------------------------------------------------
+• DELIMITER is used to change the default semicolon (;)
+• Functions must return a value
+• Control statements help in decision making and loops
+• PL/SQL allows procedural programming inside SQL
