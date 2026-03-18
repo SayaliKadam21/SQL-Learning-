@@ -1,4 +1,4 @@
-SQL / PLSQL LEARNING – DAY 10
+SQL / PLSQL LEARNING – DAY 11
 =================================================
 
 1. DATA TYPES
