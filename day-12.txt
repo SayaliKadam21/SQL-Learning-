@@ -1,0 +1,123 @@
+SQL / PLSQL LEARNING – DAY 12
+=================================================
+
+1. PROCEDURE
+-------------------------------------------------
+A Procedure is a stored program in SQL that performs
+a specific task.
+
+Properties:
+• It may or may not return a value
+• Used to insert, update or manipulate data
+• Can be called whenever required
+• Improves code reusability
+
+
+STRUCTURE OF PROCEDURE
+-------------------------------------------------
+1. Header
+   • Contains procedure name and parameters
+
+2. Body
+   • Declaration Section → variables
+   • Execution Section → SQL statements
+   • Exception Section → error handling
+
+
+WAYS TO PASS PARAMETERS
+-------------------------------------------------
+• IN     → Input parameter (default)
+• OUT    → Output parameter
+• INOUT  → Both input and output
+
+
+EXAMPLE: PROCEDURE
+-------------------------------------------------
+DELIMITER //
+
+CREATE PROCEDURE insert_data(
+    IN p_id INT(10),
+    IN p_name VARCHAR(50),
+    IN p_strength INT(10),
+    IN p_mentor VARCHAR(50)
+)
+
+BEGIN
+    INSERT INTO class(id, Classroom_no, strength, mentor)
+    VALUES(p_id, p_name, p_strength, p_mentor);
+END //
+
+DELIMITER ;
+
+
+2. FUNCTION
+-------------------------------------------------
+A Function is a stored program that always returns a value.
+
+Properties:
+• Must return a value
+• Can be used inside SQL queries
+• Used for calculations and logic
+
+EXAMPLE: FUNCTION
+-------------------------------------------------
+DELIMITER //
+
+CREATE FUNCTION square(val INT)
+RETURNS INT
+
+BEGIN
+    DECLARE result INT;
+
+    SET result = val * val;
+
+    RETURN result;
+END //
+
+DELIMITER ;
+
+
+3. TRIGGERS
+-------------------------------------------------
+Triggers are stored programs that automatically execute
+when a specific event occurs on a table.
+
+Events:
+• INSERT
+• UPDATE
+• DELETE
+
+
+Types of Triggers:
+• BEFORE INSERT
+• AFTER INSERT
+• BEFORE UPDATE
+• AFTER UPDATE
+• BEFORE DELETE
+• AFTER DELETE
+
+
+EXAMPLE: TRIGGER
+-------------------------------------------------
+DELIMITER //
+
+CREATE TRIGGER insert_money
+AFTER INSERT ON bank
+
+FOR EACH ROW
+
+BEGIN
+    UPDATE employee
+    SET salary = 'Salary has been credited';
+END //
+
+DELIMITER ;
+
+
+IMPORTANT NOTES
+-------------------------------------------------
+• Procedures may or may not return values
+• Functions always return a value
+• Triggers run automatically on events
+• DELIMITER is used to change default terminator (;)
+• Stored programs improve performance and reusability
